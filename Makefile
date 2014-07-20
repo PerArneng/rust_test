@@ -1,7 +1,11 @@
 BIN_DIR=target
 SRC_DIR=src
 
-all: hello_world task_test hello_server
+all: hello_world task_test hello_server cps_error_handling
+
+cps_error_handling: $(SRC_DIR)/cps_error_handling.rs
+	mkdir -p $(BIN_DIR)
+	rustc --out-dir $(BIN_DIR) $(SRC_DIR)/cps_error_handling.rs
 
 hello_world: $(SRC_DIR)/hello_world.rs
 	mkdir -p $(BIN_DIR)
